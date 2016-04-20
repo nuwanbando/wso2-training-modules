@@ -1,0 +1,50 @@
+version: '2'
+services:
+  dbms:
+    container_name: apim_apimrdbms
+    build: 
+        context: .
+        dockerfile: database/Dockerfile
+    ports:
+     - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+  apim:
+    container_name: apim
+    depends_on: 
+      - dbms
+      - das
+    build:
+      context: .
+      dockerfile: apim/Dockerfile
+    ports:
+      - "9763:9763"
+      - "9443:9443"
+      - "8280:8280"
+      - "8243:8243"
+  das:
+    container_name: apim_das
+    depends_on: 
+      - dbms
+    build:
+      context: .
+      dockerfile: das/Dockerfile
+    ports:
+      - "9767:9763"
+      - "9447:9443"
+  esb:
+    container_name: esb
+    build:
+      context: .
+      dockerfile: esb/Dockerfile
+    ports:
+      - "9764:9763"
+      - "9444:9443"
+  mb:
+    container_name: mb
+    build:
+      context: .
+      dockerfile: mb/Dockerfile
+    ports:
+      - "9765:9763"
+      - "9445:9443"
