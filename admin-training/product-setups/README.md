@@ -1,6 +1,14 @@
 #### Product Setup ####
 
-The products in this directory are composed as docker containers. In order to run each of the product use the following command
+The products in this directory are composed as docker containers. 
+
+Before executing the scripts, please download the product distribution into the relevant pack directory
+
+```
+i.e ./apim/pack/
+```
+
+In order to run each of the product use the following command
 
 ```
 Start All Product Containers
