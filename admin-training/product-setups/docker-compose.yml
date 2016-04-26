@@ -48,3 +48,11 @@ services:
     ports:
       - "9766:9763"
       - "9446:9443"
+  service:
+    container_name: service
+    build:
+      context: .
+      dockerfile: service/Dockerfile
+    ports:
+      - "9000:9000"
+      - "9002:9002"
