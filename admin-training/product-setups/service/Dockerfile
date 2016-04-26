@@ -1,13 +1,15 @@
 FROM nuwanbando/javabase
 
-RUN mkdir wso2
+RUN mkdir wso2 && \
+	mkdir software
 
 ENV ANT_VERSION 1.9.7
 
-RUN cd && wget -q http://www.eu.apache.org/dist//ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
-    tar xzf apache-ant-${ANT_VERSION}-bin.tar.gz && \
-    mv apache-ant-${ANT_VERSION} /opt/ant && \
-    rm -f apache-ant-${ANT_VERSION}-bin.tar.gz
+COPY service/pack/apache-ant-${ANT_VERSION}-bin.zip /software
+
+RUN cd software/ && \
+    unzip apache-ant-${ANT_VERSION}-bin.zip && \
+    mv apache-ant-${ANT_VERSION} /opt/ant
 
 ENV ANT_HOME /opt/ant
 ENV PATH ${PATH}:/opt/ant/bin
