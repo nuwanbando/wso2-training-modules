@@ -7,4 +7,6 @@ Following are the standard lab setup guides
 * LAB Settup-1: Environment setup
 	
 	1. Setting up the docker environment
+		- `docker-compose images` - will show all avaible images
+		- `docker-compose up -d esb` - will create the esb image and boot it up
 	
