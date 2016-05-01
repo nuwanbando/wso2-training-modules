@@ -1,13 +1,13 @@
 #### Product Setup ####
 
-Product setup directory have pre-congigured individual WSO2 products as well as products groupings. 
+Product setup directory have pre-configured individual WSO2 products as well as products groupings. 
 
 Following instructions will help to setup the products and solutions.
 
 Basic commands that will be helpful 
 
 ```
-docker-compose up -d {esb|mb|apim|das|service} - will start any of the individual produt in its own container.
+docker-compose up -d {esb|mb|apim|das|service} - will start any of the individual product in its own container.
 
 docker-compose ps - will list all running containers
 
