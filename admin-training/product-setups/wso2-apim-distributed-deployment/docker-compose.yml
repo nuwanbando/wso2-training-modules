@@ -1,0 +1,66 @@
+version: '2'
+services:
+  dbms:
+    container_name: apim_apimrdbms
+    build: 
+        context: .
+        dockerfile: database/Dockerfile
+    ports:
+     - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+  gateway:
+    container_name: apim_gateway
+    depends_on: 
+      - dbms
+      - das
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    ports:
+      - "9763:9763"
+      - "9443:9443"
+      - "8280:8280"
+      - "8243:8243"
+  km:
+    container_name: apim_km
+    depends_on: 
+      - dbms
+    build:
+      context: .
+      dockerfile: keymanager/Dockerfile
+    ports:
+      - "9764:9763"
+      - "9444:9443"
+  publisher:
+    container_name: apim_publisher
+    depends_on: 
+      - dbms
+    build:
+      context: .
+      dockerfile: publisher/Dockerfile
+    ports:
+      - "9765:9763"
+      - "9445:9443"
+      - "4000"
+  store:
+    container_name: apim_store
+    depends_on: 
+      - dbms
+    build:
+      context: .
+      dockerfile: store/Dockerfile
+    ports:
+      - "9766:9763"
+      - "9446:9443"
+      - "4000"
+  das:
+    container_name: apim_das
+    depends_on: 
+      - dbms
+    build:
+      context: .
+      dockerfile: das/Dockerfile
+    ports:
+      - "9767:9763"
+      - "9447:9443"
