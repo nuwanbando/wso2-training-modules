@@ -4,7 +4,7 @@ By navigating to ```product-setup``` you can find the guide to setting up releva
 
 Following are the standard lab setup guides
 
-* **LAB Settup-1:** Environment setup
+**LAB Settup-1:** Environment setup
 	
 	1. Setting up the docker environment
 		- `docker-compose images` - will show all avaible images
@@ -29,12 +29,12 @@ Following are the standard lab setup guides
 	6. Analizing the JVM with JMX console
 		- use visualVM / JConsole / jmc and connect to esb's jmx `service:jmx:rmi://docker.machine:11111/jndi/rmi://docker.machine:9999/jmxrmi`
 
-* LAB Setup-2: API Manager distributed deployment
+**LAB Setup-2:** API Manager distributed deployment
 	
 	1. Navigate to `wso2-training-modules/admin-training/product-setups/wso2-apim-distributed-deployment`
 	2. Start the setup with `docker-compose up -d`
 
-* LAB Setup-3: Monitoring with DAS
+**LAB Setup-3:** Monitoring with DAS
 
 	1. Start WSO2 Data Analytics Server `docker-compose up -d das`
 	2. Navigate to `http://docker.machine:9447/carbon`
