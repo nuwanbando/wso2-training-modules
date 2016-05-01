@@ -4,7 +4,7 @@ By navigating to ```product-setup``` you can find the guide to setting up releva
 
 Following are the standard lab setup guides
 
-* LAB Settup-1: Environment setup
+** * LAB Settup-1: ** Environment setup
 	
 	1. Setting up the docker environment
 		- `docker-compose images` - will show all avaible images
