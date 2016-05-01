@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inboundEndpoint name="jms-inbound-endpoint" protocol="jms"
+  sequence="message-logger-sequence" suspend="false" xmlns="http://ws.apache.org/ns/synapse">
+  <parameters>
+    <parameter name="interval">1000</parameter>
+    <parameter name="sequential">true</parameter>
+    <parameter name="coordination">true</parameter>
+    <parameter name="transport.jms.Destination">ordersQueue</parameter>
+    <parameter name="transport.jms.CacheLevel">1</parameter>
+    <parameter name="transport.jms.ConnectionFactoryJNDIName">QueueConnectionFactory</parameter>
+    <parameter name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</parameter>
+    <parameter name="java.naming.provider.url">repository/conf/jndi.properties</parameter>
+    <parameter name="transport.jms.SessionAcknowledgement">AUTO_ACKNOWLEDGE</parameter>
+    <parameter name="transport.jms.SessionTransacted">false</parameter>
+    <parameter name="transport.jms.ConnectionFactoryType">queue</parameter>
+    <parameter name="transport.jms.ContentType">application/json</parameter>
+  </parameters>
+</inboundEndpoint>

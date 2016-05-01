@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="StockQuoteAPI" groupId="com.example.SampleESBConfigProject.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/StockQuoteAPI.xml</file>
+    </artifact>
+    <artifact name="stock-quote-endpoint" groupId="com.example.SampleESBConfigProject.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/stock-quote-endpoint.xml</file>
+    </artifact>
+    <artifact name="jms-inbound-endpoint" groupId="com.example.SampleESBConfigProject.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/jms-inbound-endpoint.xml</file>
+    </artifact>
+    <artifact name="jms-publisher-http-proxy" groupId="com.example.SampleESBConfigProject.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/jms-publisher-http-proxy.xml</file>
+    </artifact>
+    <artifact name="stock-quote-proxy" groupId="com.example.SampleESBConfigProject.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/stock-quote-proxy.xml</file>
+    </artifact>
+    <artifact name="message-logger-sequence" groupId="com.example.SampleESBConfigProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/message-logger-sequence.xml</file>
+    </artifact>
+</artifacts>

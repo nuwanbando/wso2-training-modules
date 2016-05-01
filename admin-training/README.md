@@ -17,12 +17,25 @@ Following are the standard lab setup guides
 		- upload the `.car`
 
 	3. Health check
-		- navigate to `` if you get 200K the service is running
+		- navigate to `http://docker.machine:8281/services/Version?wsdl` if you get 200 OK the service is running
 
 	4. Looking at ESB logs
 		- `docker exec -it tail -f wso2/wso2esb-4.9.0/repository/logs/wso2carbon.log` will tail the log file to the running console
 
 	5. Analizing wire logs
+		- navigate to `configure->logging` from management console
+		- search for `wire` and enable debug for `org.apache.synapse.transport.http.wire` class
 
-	6. Taking a memory dump
+	6. Analizing the JVM with JMX console
+		- use visualVM / JConsole / jmc and connect to esb's jmx `service:jmx:rmi://docker.machine:11111/jndi/rmi://docker.machine:9999/jmxrmi`
+
+* LAB Setup-2: API Manager distributed deployment
+	
+	1. Navigate to `wso2-training-modules/admin-training/product-setups/wso2-apim-distributed-deployment`
+	2. Start the setup with `docker-compose up -d`
+
+* LAB Setup-3: Monitoring with DAS
+
+	1. Start WSO2 Data Analytics Server `docker-compose up -d das`
+	2. Navigate to `http://docker.machine:9447/carbon`
 	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="stock-quote-proxy" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+      <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+      <send>
+        <endpoint>
+          <address format="soap11" trace="disable" uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+        </endpoint>
+      </send>
+    </inSequence>
+    <outSequence/>
+    <faultSequence>
+      <log level="full"/>
+    </faultSequence>
+  </target>
+</proxy>

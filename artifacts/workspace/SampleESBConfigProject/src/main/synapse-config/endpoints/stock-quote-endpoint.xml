@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="stock-quote-endpoint" xmlns="http://ws.apache.org/ns/synapse">
+  <address format="soap11" trace="disable" uri="http://192.168.56.101:9000/services/SimpleStockQuoteService"/>
+</endpoint>

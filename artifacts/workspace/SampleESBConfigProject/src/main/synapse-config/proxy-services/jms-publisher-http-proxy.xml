@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="jms-publisher-http-proxy" startOnLoad="true"
+  trace="disable" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+      <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+      <send>
+        <endpoint>
+          <address trace="disable" uri="jms:/FidelityDPQueue?transport.jms.ConnectionFactoryJNDIName=QueueConnectionFactory&amp;java.naming.factory.initial=org.wso2.andes.jndi.PropertiesFileInitialContextFactory&amp;java.naming.provider.url=repository/conf/jndi.properties&amp;transport.jms.DestinationType=queue"/>
+        </endpoint>
+      </send>
+    </inSequence>
+    <outSequence/>
+    <faultSequence/>
+  </target>
+</proxy>

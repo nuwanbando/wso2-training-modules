@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/stock-quote-api" name="StockQuoteAPI" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http" uri-template="/quote/{symbol}">
+    <inSequence>
+      <property expression="get-property('transport','Accept')"
+        name="ACCEPT_TYPE" scope="default" type="STRING"/>
+      <property name="Accept" scope="transport" type="STRING" value="application/json"/>
+      <payloadFactory media-type="xml">
+        <format>
+          <ser:getQuote xmlns:ser="http://services.samples" xmlns:xsd="http://services.samples/xsd">
+            <!--Optional:-->
+            <ser:request>
+              <xsd:symbol>$1</xsd:symbol>
+            </ser:request>
+          </ser:getQuote>
+        </format>
+        <args>
+          <arg evaluator="xml" expression="get-property('uri.var.symbol')"/>
+        </args>
+      </payloadFactory>
+      <property name="SOAPAction" scope="transport" type="STRING" value="urn:getQuote"/>
+      <call>
+        <endpoint key="stock-quote-endpoint"/>
+      </call>
+      <log level="full"/>
+      <property expression="get-property('ACCEPT_TYPE')"
+        name="messageType" scope="axis2" type="STRING"/>
+      <respond/>
+    </inSequence>
+    <outSequence/>
+    <faultSequence/>
+  </resource>
+</api>
