@@ -7,9 +7,9 @@ Following instructions will help to setup the products and solutions.
 Basic commands that will be helpful 
 
 ```
-docker-compose up -d {esb|mb|apim|das|service} - Will start any of the individual produt in its own container.
+docker-compose up -d {esb|mb|apim|das|service} - will start any of the individual produt in its own container.
 
-docker-compose ps - Will list all running containers
+docker-compose ps - will list all running containers
 
 docker-compose down --rmi all - will kill all container and remove the associated docker images
 
