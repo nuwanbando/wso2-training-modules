@@ -1,0 +1,6 @@
+FROM dinkel/openldap
+
+ENV SLAPD_PASSWORD=password
+ENV SLAPD_DOMAIN=wso2.org
+
+EXPOSE 389
