@@ -1,12 +1,5 @@
 version: '2'
 services:
-  openldap:
-    container_name: openldap
-    build:
-      context: .
-      dockerfile: openldap/Dockerfile
-    ports:
-        - "389:389"
   dbms:
     container_name: apim_apimrdbms
     build: 
@@ -41,6 +34,8 @@ services:
       - "9447:9443"
   esb:
     container_name: esb
+    depends_on: 
+      - mb
     build:
       context: .
       dockerfile: esb/Dockerfile
