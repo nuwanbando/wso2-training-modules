@@ -6,10 +6,13 @@ COPY esb/pack/wso2esb-4.9.0.zip wso2/
 
 RUN cd wso2/ && \
         unzip wso2esb-4.9.0.zip
+        
+COPY esb/pack/mb_libs/* /wso2/wso2esb-4.9.0/repository/components/lib/
 
 COPY esb/conf/axis2.xml /wso2/wso2esb-4.9.0/repository/conf/axis2/
 COPY esb/conf/carbon.xml /wso2/wso2esb-4.9.0/repository/conf/
 COPY esb/conf/jmx.xml /wso2/wso2esb-4.9.0/repository/conf/etc/
+COPY esb/conf/jndi.properties /wso2/wso2esb-4.9.0/repository/conf/
 
 CMD ["sh", "/wso2/wso2esb-4.9.0/bin/wso2server.sh","-Dcom.sun.management.jmxremote.port=9999","-Dcom.sun.management.jmxremote.authenticate=false","-Dcom.sun.management.jmxremote.ssl=false","-Dcom.sun.management.jmxremote.rmi.port=9999","-Djava.rmi.server.hostname=docker.machine"]]
 
