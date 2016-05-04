@@ -7,6 +7,9 @@ services:
         dockerfile: openldap/Dockerfile
     ports:
      - "389:389"
+    environment:
+      SLAPD_PASSWORD: password
+      SLAPD_DOMAIN: wso2.org
   dbms:
     container_name: apim_apimrdbms
     build: 
